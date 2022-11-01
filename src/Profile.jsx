@@ -7,10 +7,25 @@ function Card({ children}) {
         </div>
     )
 }
-export function Profile(props) {
+export function Profile({person, size}) {
     return (
         <Card>
-            <Avatar {...props} />
+            <h2>{person.name}</h2>
+            <Avatar 
+                person={person}
+                size={size}
+            />
+            <ul>
+                <li><b>Profession:</b> {person.profession}</li>
+                <li>
+                <b>Awards: {person.awards.length} </b>
+                ({person.awards.join(', ')})
+                </li>
+                <li>
+                <b>Discovered: </b>
+                {person.discovery}
+                </li>
+            </ul>
         </Card>
     );
   }
