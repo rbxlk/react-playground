@@ -17,10 +17,12 @@ export function Profile({person, size}) {
             />
             <ul>
                 <li><b>Profession:</b> {person.profession}</li>
-                <li>
-                <b>Awards: {person.awards.length} </b>
-                ({person.awards.join(', ')})
-                </li>
+                { person.awards &&
+                    <li>
+                        <b>Awards: {person.awards.length} </b>
+                        ({person.awards.join(', ')})
+                    </li>
+                }
                 <li>
                 <b>Discovered: </b>
                 {person.discovery}
