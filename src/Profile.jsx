@@ -1,13 +1,13 @@
 import { Avatar } from "./Avatar";
 
-function Card({ children}) {
+function Card({ children }) {
     return (
         <div className="card">
             {children}
         </div>
     )
 }
-export function Profile({person, size}) {
+export function Profile({person, size=100}) {
     return (
         <Card>
             <h2>{person.name}</h2>
@@ -25,7 +25,7 @@ export function Profile({person, size}) {
                 }
                 <li>
                 <b>Discovered: </b>
-                {person.discovery}
+                {person.accomplishment}
                 </li>
             </ul>
         </Card>
