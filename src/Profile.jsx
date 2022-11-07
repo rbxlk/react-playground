@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Avatar } from "./Avatar";
 
 function Card({ children }) {
@@ -8,6 +9,11 @@ function Card({ children }) {
     )
 }
 export function Profile({person, size=100}) {
+    const [showMore, setShowMore] = useState(false);
+
+    function handleMoreClick() {
+        setShowMore(!showMore);
+      }
     return (
         <Card>
             <h2>{person.name}</h2>
@@ -23,11 +29,11 @@ export function Profile({person, size=100}) {
                         ({person.awards.join(', ')})
                     </li>
                 }
-                <li>
-                <b>Discovered: </b>
-                {person.accomplishment}
-                </li>
             </ul>
+            <button onClick={handleMoreClick}>
+                {showMore ? 'Hide' : 'Show'} accomplishments
+            </button>
+            { showMore && person.accomplishment && <p>Accomplishment: {person.accomplishment} </p> }
         </Card>
     );
   }
