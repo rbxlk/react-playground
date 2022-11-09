@@ -1,7 +1,11 @@
+import Form from "./Form";
 import Gallery from "./Gallery";
 
 export default function App() {
     return(
-        <Gallery/>
+        <>
+            <Gallery/>
+            <Form/>
+        </>
     )
 }
