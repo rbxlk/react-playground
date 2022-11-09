@@ -46,6 +46,24 @@ export default function Form() {
                     onChange={handlePersonArtworkChange}
                 />
             </label>
+            <br></br>
+            <label>
+                City:
+                <input
+                    name='city'
+                    value={person.artwork.city}
+                    onChange={handlePersonArtworkChange}
+                />
+            </label>
+            <br></br>
+            <label>
+                Image:
+                <input
+                    name='image'
+                    value={person.artwork.image}
+                    onChange={handlePersonArtworkChange}
+                />
+            </label>
             <p>
                 <i>{person.artwork.title}</i>
                 {' by '}
