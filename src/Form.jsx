@@ -10,10 +10,20 @@ export default function Form() {
         }
     })
 
-    function handleNameChange(e){
+    function handlePersonNameChange(e){
         setPerson({
             ...person,
             [e.target.name]: e.target.value
+        })
+    }
+
+    function handlePersonArtworkChange(e){
+        setPerson({
+            ...person,
+            artwork: {
+                ...person.artwork,
+                [e.target.name]: e.target.value
+            }
         })
     }
 
@@ -24,9 +34,29 @@ export default function Form() {
                 <input
                     name='name'
                     value={person.name}
-                    onChange={handleNameChange}
+                    onChange={handlePersonNameChange}
                 />
             </label>
+            <br></br>
+            <label>
+                Title:
+                <input
+                    name='title'
+                    value={person.artwork.title}
+                    onChange={handlePersonArtworkChange}
+                />
+            </label>
+            <p>
+                <i>{person.artwork.title}</i>
+                {' by '}
+                {person.name}
+                <br />
+                (located in {person.artwork.city})
+            </p>
+            <img 
+                src={person.artwork.image} 
+                alt={person.artwork.title}
+            />
         </>
     )
 }
