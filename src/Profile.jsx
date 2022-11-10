@@ -1,3 +1,4 @@
+import { Button } from "@mantine/core";
 import { useState } from "react";
 import { Avatar } from "./Avatar";
 
@@ -30,9 +31,9 @@ export function Profile({person, size=100}) {
                     </li>
                 }
             </ul>
-            <button onClick={handleMoreClick}>
+            <Button onClick={handleMoreClick}>
                 {showMore ? 'Hide' : 'Show'} accomplishments
-            </button>
+            </Button>
             { showMore && person.accomplishment && <p>Accomplishment: {person.accomplishment} </p> }
         </Card>
     );
