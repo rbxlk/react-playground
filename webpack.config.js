@@ -17,7 +17,12 @@ module.exports = {
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],
-        }
+        },
+        {
+          test: /\.(js|jsx)$/,
+          enforce: "pre",
+          use: ["source-map-loader"],
+        },
     ]
   },
   resolve: {
