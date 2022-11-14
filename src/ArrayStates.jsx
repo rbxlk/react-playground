@@ -1,7 +1,7 @@
 import { Button, List, TextInput, Title } from "@mantine/core";
 import { useState } from "react";
 
-export default function AddRemoveArray(){
+export function AddRemoveInsertArray(){
     const [index, setIndex] = useState(1);
     const [name, setName] = useState('');
     const [artists, setArtists] = useState([]);
@@ -21,6 +21,27 @@ export default function AddRemoveArray(){
         </List.Item>
     )
 
+    function insertHandler(){
+        const insertAt = 1;
+        const nextArtists = [
+            ...artists.slice(0,insertAt),
+            {id: index, name: name},
+            ...artists.slice(insertAt)
+        ]
+        setName('');
+        setArtists(nextArtists);
+        setIndex(index + 1);
+    }
+
+    function addHandler(){
+        setName('');
+        setArtists([...artists, {
+            id: index, name: name
+        }]);
+        setIndex(index + 1)
+
+    }
+
     return (
         <>
             <Title order={1}>Inspiring Sculptors:</Title>
@@ -30,14 +51,12 @@ export default function AddRemoveArray(){
             />
             <Button
                 disabled={name === ''}
-                onClick={ () => {
-                    setName('');
-                    setIndex(index + 1)
-                    setArtists([...artists, {
-                        id: index, name: name
-                    }]);
-                }}
+                onClick={addHandler}
             > Add </Button>
+            <Button
+                onClick={insertHandler}
+            > Insert
+            </Button>
             <List> {listArtists} </List>
         </>
     )
