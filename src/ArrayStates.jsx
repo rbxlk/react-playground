@@ -94,3 +94,38 @@ export function ShapeEditor() {
         </>
     )
 }
+
+export function CounterList(){
+    let initialCounters = [
+        0, 0, 0
+    ];
+
+    const [counters, setCounters] = useState(
+        initialCounters
+    )
+
+    function handleIncrementClick(index){
+        const nextCounter = counters.map((c, i) => {
+            if(index === i){
+                return c + 1;
+            } else {
+                return c;
+            }
+        })
+        setCounters(nextCounter);
+    }
+    return(
+        <List>
+            {counters.map((counter, i) => (
+                <List.Item key={i}>
+                    {counter}
+                    <Button onClick={ () => {
+                        handleIncrementClick(i)
+                    }}>
+                        +1
+                    </Button>
+                </List.Item>
+            ))}
+        </List>
+    )
+}
