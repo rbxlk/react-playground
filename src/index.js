@@ -7,6 +7,7 @@ import BucketList from "./bucketlist";
 import ErrorPage from "./error-page";
 import Form from "./Form";
 import Gallery from "./Gallery";
+import TravelPlan from "./TravelPlan";
 import "./styles.css"
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: "bucketlist",
                 element: <BucketList />
+            },
+            {
+                path: "travelplan",
+                element: <TravelPlan />
             }
         ]
     },
