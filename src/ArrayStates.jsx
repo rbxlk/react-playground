@@ -54,6 +54,7 @@ export function AddRemoveInsertArray(){
                 onClick={addHandler}
             > Add </Button>
             <Button
+                disabled={name === ''}
                 onClick={insertHandler}
             > Insert
             </Button>
