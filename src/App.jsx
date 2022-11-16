@@ -15,6 +15,7 @@ export default function App() {
                             <Text component={Link} variant="link" to="/arrays">Arrays</Text>
                             <Text component={Link} variant="link" to="/counters">Counter List</Text>
                             <Text component={Link} variant="link" to="/shapes">Shape Editor</Text>
+                            <Text component={Link} variant="link" to="/bucketlist">Bucket List</Text>
                         </Navbar.Section>
                         <Navbar.Section mt="xs">
                             <Text variant="text">by Rob Luck</Text>

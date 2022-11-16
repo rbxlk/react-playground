@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import { AddRemoveInsertArray, CounterList, ShapeEditor } from "./ArrayStates";
+import BucketList from "./bucketlist";
 import ErrorPage from "./error-page";
 import Form from "./Form";
 import Gallery from "./Gallery";
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: "shapes",
                 element: <ShapeEditor />
+            },
+            {
+                path: "bucketlist",
+                element: <BucketList />
             }
         ]
     },
