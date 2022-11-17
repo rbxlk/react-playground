@@ -6,7 +6,21 @@ export default function TravelPlan() {
     const [plan, setPlan] = useState(initialTravelPlan);
 
     function handleComplete(parentId, childId) {
-        //Complete
+        const parent = plan[parentId]
+        // Create a new version of the parent place
+        // that doesn't include this child ID
+        const nextParent = {
+            ...parent,
+            childIds: parent.childIds.filter(
+                id => id !== childId
+            )
+        };
+        //Update the root state object...
+        setPlan({
+            ...plan,
+            // ...so that is has the updated parents.
+            [parentId]: nextParent
+        })
     }
 
     const root = plan[0];
