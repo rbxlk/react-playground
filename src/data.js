@@ -282,4 +282,41 @@ export const people = [{
       childIds: []
     }
   };
-  
+
+export const links = [
+  {
+    id: 0,
+    title: "Gallery",
+    linkPath: "/gallery"
+  },
+  {
+    id: 1,
+    title: "Form",
+    linkPath: "/form"
+  },
+  {
+    id: 2,
+    title: "Array",
+    linkPath: "/arrays"
+  },
+  {
+    id: 3,
+    title: "Counter List",
+    linkPath: "/counters",
+  },
+  {
+    id: 4,
+    title: "Shape Editor",
+    linkPath: "/shapes"
+  },
+  {
+    id: 5,
+    title: "Bucket List",
+    linkPath: "/bucketlist"
+  },
+  {
+    id: 6,
+    title: "Travel Plan",
+    linkPath: "/travelplan"
+  }
+]
