@@ -318,5 +318,10 @@ export const links = [
     id: 6,
     title: "Travel Plan",
     linkPath: "/travelplan"
+  },
+  {
+    id: 7,
+    title: "Share State",
+    linkPath: "/sharestate"
   }
 ]

@@ -9,6 +9,7 @@ import Form from "./Form";
 import Gallery from "./Gallery";
 import TravelPlan from "./TravelPlan";
 import "./styles.css"
+import ShareState from "./ShareState";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path: "travelplan",
                 element: <TravelPlan />
+            },
+            {
+                path: "sharestate",
+                element: <ShareState />
             }
         ]
     },
