@@ -323,5 +323,16 @@ export const links = [
     id: 7,
     title: "Share State",
     linkPath: "/sharestate"
+  },
+  {
+    id: 8,
+    title: "Reset State",
+    linkPath: "/resetstate"
   }
 ]
+
+export const contacts = [
+  { id: 0, name: 'Taylor', email: 'taylor@mail.com' },
+  { id: 1, name: 'Alice', email: 'alice@mail.com' },
+  { id: 2, name: 'Bob', email: 'bob@mail.com' }
+];
