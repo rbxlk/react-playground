@@ -12,18 +12,17 @@ export default function Messenger() {
                 selectedContact={to}
                 onSelect={(contact)=>setTo(contact)}
             />
-            {/* <Chat key={to.id} contact={to}/> */}
+            <Chat key={to.id} contact={to}/>
         </div>
     )
 }
 
 export function ContactList({
     contacts,
-    selectedContact,
     onSelect
 }){
     return(
-            <List listStyleType="none">
+            <List listStyleType="none" style={{float: "left"}}>
                 {contacts.map(contact=>
                     <List.Item key={contact.id}>
                         <Button 
@@ -37,5 +36,23 @@ export function ContactList({
                     </List.Item>
                 )}
             </List>
+    )
+}
+
+export function Chat({contact}){
+    const [text, setText] = useState('');
+    return(
+        <section style={{float: "left"}}>
+            <textarea
+                style={{height: "150px"}}
+                placeholder={"Chat to " + contact.name}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+            />
+            <br></br>
+            <Button variant="default">
+                Send to contact: {contact.name}
+            </Button>
+        </section>
     )
 }
