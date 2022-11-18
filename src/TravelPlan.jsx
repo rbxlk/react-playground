@@ -38,7 +38,7 @@ export default function TravelPlan() {
     return (
         <>
             <Title order={2}>Places to visit</Title>
-            <List type="ordered">
+            <List withPadding type="ordered">
                 {listItems}
             </List>
         </>
@@ -69,7 +69,7 @@ function PlaceTree({id, parentId, placesById, onComplete}) {
                 Complete
             </Button>
             {childIds.length > 0 &&
-                <List type="ordered">
+                <List withPadding type="ordered">
                     {childListItems}
                 </List>
             }
