@@ -326,8 +326,8 @@ export const links = [
   },
   {
     id: 8,
-    title: "Reset State",
-    linkPath: "/resetstate"
+    title: "Messenger",
+    linkPath: "/messenger"
   }
 ]
 

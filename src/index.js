@@ -10,7 +10,7 @@ import Gallery from "./Gallery";
 import TravelPlan from "./TravelPlan";
 import "./styles.css"
 import ShareState from "./ShareState";
-import Messenger from "./ResetState";
+import Messenger from "./Messenger";
 
 const router = createBrowserRouter([
     {
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
                 element: <ShareState />
             },
             {
-                path: "resetstate",
+                path: "messenger",
                 element: <Messenger />
             }
         ]
