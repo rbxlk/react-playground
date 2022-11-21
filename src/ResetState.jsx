@@ -1,25 +1,33 @@
 import { Button, List } from "@mantine/core";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import { contacts } from "./data";
+import { initialState, messengerReducer } from "./messengerReducer";
 
 export default function Messenger() {
-    const [to, setTo] = useState(contacts[0]);
+    const [state, dispatch] = useReducer(messengerReducer, initialState)
+    const message = state.message;
+    const contact = contacts.find((c) => c.id === state.selectedId);
 
     return (
         <div>
             <ContactList 
                 contacts={contacts}
-                selectedContact={to}
-                onSelect={(contact)=>setTo(contact)}
+                selectedId={state.selectedId}
+                dispatch={dispatch}
             />
-            <Chat key={to.id} contact={to}/>
+            <Chat 
+                key={contact.id} 
+                message={message}
+                contact={contact}
+                dispatch={dispatch}/>
         </div>
     )
 }
 
 export function ContactList({
     contacts,
-    onSelect
+    selectedId,
+    dispatch
 }){
     return(
             <List listStyleType="none" style={{float: "left"}}>
@@ -28,10 +36,13 @@ export function ContactList({
                         <Button 
                             style={{width: "100px"}} 
                             onClick={() => {
-                                onSelect(contact)
+                                dispatch({
+                                    type: 'changed_selection',
+                                    contactId: contact.id
+                                })
                             }}
                         >
-                            {contact.name}
+                            {selectedId === contact.id ? <b>{contact.name}</b> : contact.name}
                         </Button>
                     </List.Item>
                 )}
@@ -39,19 +50,21 @@ export function ContactList({
     )
 }
 
-export function Chat({contact}){
-    const [text, setText] = useState('');
+export function Chat({contact, message, dispatch}){
     return(
         <section style={{float: "left"}}>
             <textarea
                 style={{height: "150px"}}
                 placeholder={"Chat to " + contact.name}
-                value={text}
-                onChange={(e) => setText(e.target.value)}
+                value={message}
+                onChange={(e) => dispatch({
+                    type: 'edited_message',
+                    message: e.target.value
+                })}
             />
             <br></br>
             <Button variant="default">
-                Send to contact: {contact.name}
+                Send to contact: {contact.email}
             </Button>
         </section>
     )
