@@ -1,16 +1,17 @@
+import { Button, Checkbox, List, TextInput } from "@mantine/core";
 import { useState } from "react";
 import { useTasks, useTasksDispatch } from "./TasksContext";
 
 export default function TaskList() {
     const tasks = useTasks();
     return(
-        <ul>
+        <List>
             {tasks.map(task => (
-                <li key={task.id}   >
+                <List.Item key={task.id} >
                     <Task task={task}/>
-                </li>
+                </List.Item>
             ))}
-        </ul>
+        </List>
     )
 }
 
@@ -21,7 +22,7 @@ function Task({task}) {
     if (isEditing) {
         taskContent = (
             <>
-                <input
+                <TextInput
                     value={task.text}
                     onChange={e => {
                         dispatch({
@@ -33,25 +34,24 @@ function Task({task}) {
                         })
                     }}
                 />
-                <button onClick={() =>setIsEditing(false)}>
+                <Button onClick={() =>setIsEditing(false)}>
                     Save
-                </button>
+                </Button>
             </>
         )
     } else {
         taskContent = (
             <>
-                {task.text}
-                <button onClick={() => setIsEditing(true)}>
+                <Button size="sm" onClick={() => setIsEditing(true)}>
                     Edit
-                </button>
+                </Button>
             </>
         );
     }
     return(
-        <label>
-            <input
-                type="checkbox"
+        <>
+            <Checkbox
+                label={task.text}
                 checked={task.done}
                 onChange={e => {
                     dispatch({
@@ -63,15 +63,17 @@ function Task({task}) {
                     })
                 }}
             />
-            {taskContent}
-            <button onClick={()=>{
-                dispatch({
-                    type: 'deleted',
-                    id: task.id
-                });
-            }}>
-                Delete
-            </button>
-        </label>
+            <div style={{display: "inline-block"}}>
+                {taskContent}
+                <Button variant="default" onClick={()=>{
+                    dispatch({
+                        type: 'deleted',
+                        id: task.id
+                    });
+                }}>
+                    Delete
+                </Button>
+            </div>
+        </>
     )
 }
