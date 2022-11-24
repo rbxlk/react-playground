@@ -11,6 +11,7 @@ import TravelPlan from "./TravelPlan";
 import "./styles.css"
 import ShareState from "./ShareState";
 import Messenger from "./Messenger";
+import TaskWrapper from "./TaskWrapper";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
             {
                 path: "messenger",
                 element: <Messenger />
+            },
+            {
+                path: "tasks",
+                element: <TaskWrapper />
             }
         ]
     },

@@ -328,6 +328,11 @@ export const links = [
     id: 8,
     title: "Messenger",
     linkPath: "/messenger"
+  },
+  {
+    id: 9,
+    title: "Task List",
+    linkPath: "/tasks"
   }
 ]
 
