@@ -1,3 +1,4 @@
+import { Button, TextInput } from "@mantine/core";
 import { useState } from "react";
 import { contacts } from "./data";
 import { useTasksDispatch } from "./TasksContext";
@@ -7,13 +8,16 @@ export default function AddTask(){
     const dispatch = useTasksDispatch();
     return(
         <>
-            <input
+            <TextInput
+                placeholder="Your task..."
+                label="Add a task"
+                size="sm"
                 value={text}
                 onChange={(e) => {
                     setText(e.target.value)
                 }}
             />
-            <button
+            <Button
                 onClick={(e) => {
                     setText('');
                     dispatch({
@@ -22,7 +26,7 @@ export default function AddTask(){
                         id: contacts.length
                     })
                 }}
-            > Add </button>
+            > Add </Button>
         </>
     )
 }
